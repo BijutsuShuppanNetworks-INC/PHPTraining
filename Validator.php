@@ -1,6 +1,6 @@
 <PHP
 /**
- * “ü—Íƒ`ƒFƒbƒNˆ—‚ð‚Ü‚Æ‚ß‚½ƒNƒ‰ƒX
+ * å…¥åŠ›ãƒã‚§ãƒƒã‚¯å‡¦ç†ã‚’ã¾ã¨ã‚ãŸã‚¯ãƒ©ã‚¹
  * 
  * 
  * PHP version 5
@@ -18,10 +18,10 @@ class Validator
 {
 
     /**
-     *  “ü—Í”»’è(”»’è•¶Žš—ñ‚Ì—L–³”»’è)
+     *  å…¥åŠ›åˆ¤å®š(åˆ¤å®šæ–‡å­—åˆ—ã®æœ‰ç„¡åˆ¤å®š)
      *
      * @access public
-     * @param  $value ƒ`ƒFƒbƒN•¶Žš—ñ
+     * @param  $value ãƒã‚§ãƒƒã‚¯æ–‡å­—åˆ—
      * @return boolean
      */
     public function _require($value)
@@ -33,18 +33,18 @@ class Validator
     }
 
     /**
-     *  ‘SŠp•¶Žš‚¾‚¯‚Å‚ ‚é‚±‚Æ‚ð”»’è
+     *  å…¨è§’æ–‡å­—ã ã‘ã§ã‚ã‚‹ã“ã¨ã‚’åˆ¤å®š
      *
      * @access public
-     * @param  $value ƒ`ƒFƒbƒN•¶Žš—ñ
+     * @param  $value ãƒã‚§ãƒƒã‚¯æ–‡å­—åˆ—
      * @return boolean
      */
     public function _stringIsZenkaku($value)
     {
         if (!$value) {
-            return true;    //“ü—Í‚ª‚È‚¯‚ê‚ÎOK‚Å–ß‚·
+            return true;    //å…¥åŠ›ãŒãªã‘ã‚Œã°OKã§æˆ»ã™
         }
-        //magic_quotes_gpc‚ªON‚ÌŽž‚ÍAƒGƒXƒP[ƒv‚ð‰ðœ‚·‚é
+        //magic_quotes_gpcãŒONã®æ™‚ã¯ã€ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚’è§£é™¤ã™ã‚‹
         if (get_magic_quotes_gpc()) {
             $value = stripslashes($value);
         }
@@ -52,18 +52,18 @@ class Validator
     }
 
     /**
-     *  ”¼Šp•¶Žš‚¾‚¯‚Å‚ ‚é‚±‚Æ‚ð”»’è
+     *  åŠè§’æ–‡å­—ã ã‘ã§ã‚ã‚‹ã“ã¨ã‚’åˆ¤å®š
      *
      * @access public
-     * @param  $value ƒ`ƒFƒbƒN•¶Žš—ñ
+     * @param  $value ãƒã‚§ãƒƒã‚¯æ–‡å­—åˆ—
      * @return boolean
      */
     public function _stringIsHankaku($value)
     {
         if (!$value) {
-            return true;    //“ü—Í‚ª‚È‚¯‚ê‚ÎOK‚Å–ß‚·
+            return true;    //å…¥åŠ›ãŒãªã‘ã‚Œã°OKã§æˆ»ã™
         }
-        //magic_quotes_gpc‚ªON‚ÌŽž‚ÍAƒGƒXƒP[ƒv‚ð‰ðœ‚·‚é
+        //magic_quotes_gpcãŒONã®æ™‚ã¯ã€ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã‚’è§£é™¤ã™ã‚‹
         if (get_magic_quotes_gpc()) {
             $value = stripslashes($value);
         }
