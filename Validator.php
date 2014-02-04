@@ -31,7 +31,6 @@ class Validator
     }
 
     /**
-<<<<<<< HEAD
      *  半角数字だけであることを判定
      *
      * @access public
@@ -98,12 +97,10 @@ class Validator
      *
      * @access public
      * @param  $value チェック文字列
-=======
      *  全角文字だけであることを判定
      *
      * @access public
      * @param  $value チェック文字列
->>>>>>> 21822ba9026c9c93992e9e9666b6e9fa639a39e0
      * @return boolean
      */
     public function _stringIsZenkaku($value)
