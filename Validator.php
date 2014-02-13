@@ -151,7 +151,7 @@ class Validator
             $value = stripslashes($value);
         }
         if( strlen($value) > $maxLength){
-            return strlen($value);
+            return true;
         } else {
             return false;
         }
