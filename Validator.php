@@ -1,11 +1,11 @@
 <?PHP
 /**
  * 入力チェック処理をまとめたクラス
- * 
- * 
+ *
+ *
  * PHP version 5
- * 
- * 
+ *
+ *
  * @category  php5
  * @package   BNW_PHPTraining
  * @author    Kenichi Suzuki <k-suzuki@bijutsu.co.jp>
@@ -132,5 +132,28 @@ class Validator
             $value = stripslashes($value);
         }
         return $value == mb_convert_kana($value, 'rnaskh');
+    }
+
+    /**
+     *  文字列の長さを判定
+     *
+     * @access public
+     * @param  $value チェック文字数
+     * @return boolean (/整数)
+     */
+    public function _stringLength($value, $maxLength)
+    {
+        if (!$value) {
+            return true;    //入力がなければOKで戻す
+        }
+        //magic_quotes_gpcがONの時は、エスケープを解除する
+        if (get_magic_quotes_gpc()) {
+            $value = stripslashes($value);
+        }
+        if( strlen($value) > $maxLength){
+            return strlen($value);
+        } else {
+            return false;
+        }
     }
 }
