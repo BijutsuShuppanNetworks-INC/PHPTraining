@@ -139,7 +139,7 @@ class Validator
      *
      * @access public
      * @param  $value チェック文字数
-     * @return boolean (/整数)
+     * @return boolean
      */
     public function _stringLength($value, $maxLength)
     {
