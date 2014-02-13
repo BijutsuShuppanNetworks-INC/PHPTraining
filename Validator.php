@@ -156,4 +156,34 @@ class Validator
             return false;
         }
     }
+    /**
+     *  文字列長
+     *
+     * @access public        
+     * @param  $value         チェック文字列                
+     * @param  $params['mb']  マルチバイトの考慮をするか否か
+     * @param  $params['min'] ミニマル値                    
+     * @param  $params['max'] マキシマル値                  
+     * @return true           / false
+     */
+    function _stringLengthSample($value, $params)
+    {
+        if (!$value) {
+            return true;    //入力がなければOKで戻す
+        }
+        //magic_quotes_gpcがONの時は、エスケープを解除する
+        if (get_magic_quotes_gpc()) {
+            $value = stripslashes($value);
+        }
+        if ($params['mb']) {
+            $len = mb_strlen($value);
+        }
+        else {
+            $len = strlen($value);
+        }
+        if ($params['min'] <= $len && $len <= $params['max']) {
+            return true;
+        }
+        return false;
+    }
 }
