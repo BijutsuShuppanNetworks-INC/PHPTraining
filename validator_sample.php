@@ -10,7 +10,7 @@ require_once('Validator.php');
 $libValidator = new Validator();
 
 $value01 = $_POST['categoryId'];
-$params = array('mb', 2, 5);
+$params = array('mb' => 'mb', 'min' => 2, 'max' => 5);
 $result  = $libValidator->_stringLength($value01, $params);
 if($result >= 1){
 	echo $result;
