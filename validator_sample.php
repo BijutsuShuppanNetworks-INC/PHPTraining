@@ -10,13 +10,13 @@ require_once('Validator.php');
 $libValidator = new Validator();
 
 $value01 = $_POST['categoryId'];
-$result  = $libValidator->_stringLength($value01,4);
-echo $result;
-// if($result >= 1){
-// 	echo $result;
-// } else {
-// 	echo 'ちがうよ';
-// }
+$params = array('mb', 2, 5);
+$result  = $libValidator->_stringLength($value01, $params);
+if($result >= 1){
+	echo $result;
+} else {
+	echo 'ちがうよ';
+}
 
 
 ?>
