@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   ログインエリアのCSS
+   ========================================================================== */
+#main{
+	height: 100%;
+}
+
+
+
+
+
+/* ログインページ
+   ========================================================================== */
+.login-area{
+  width: 500px;
+  height: 300px;
+  padding: 0 1em;
+  background: #ffffff;
+  background: rgba(255,255,255,0.7);
+  border: 15px solid #dddddd;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+}
+
+.ie7 .login-area{
+	position: relative;
+	margin: 100px auto;
+}
+
+.login-area h1,
+.login-area h3,
+.login-area p{
+  text-shadow: 0 1px 0  rgba(255, 255, 255, 0.6);
+}
+
+
+
+
+
+/* ログイン後のページ
+   ========================================================================== */
+/* おしらせエリア */
+.info-box{
+  height: 200px;
+  overflow: auto;
+}
+
+.info-box::-webkit-scrollbar-track {
+  position: relative;
+  background: #f1f1f1;
+}
+.info-box::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+.info-box::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 5px;
+}
+
+/* コンテンツへのショートカットリンク */
+.site-link h3{
+  margin: 0 1em 0 0;
+  padding: 0 0 0.5em;
+  border-bottom: 1px solid #CBCBCB;
+  color: #444444;
+  font-size: 80%;
+
+}

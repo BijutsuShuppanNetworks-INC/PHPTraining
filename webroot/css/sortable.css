@@ -1,0 +1,299 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   sotable-base
+   ========================================================================== */
+ul.sotable-base{
+  margin-bottom: 0;
+  padding: 0 0  1em 0;
+  list-style: none;
+}
+
+.sotable-base:after,
+.sotable-base li:after{
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.ie7 .sotable-base,
+.ie7 .sotable-base li{ zoom: 1; }
+
+/* sotable-base > li */
+.sotable-base li{
+  display: block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.3em;
+  padding: 5px;
+  border: 1px solid #CBCBCB;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 1;
+}
+
+/* sotable-base > li > span */
+.sotable-base li span{
+  display: inline-block;
+  float: left;
+}
+
+.ie7 .sotable-base li span{
+  display: inline;
+  zoom: 1;
+}
+
+/* ソート可能な要素のカーソルを変更 */
+.sortable-item{ cursor: move;}
+
+/* 移動中の枠線を非表示に */
+.ui-draggable-dragging{
+  max-width: 250px;
+  border-top: none!important;
+}
+
+/* 画像 */
+.sortable-img{
+  width: 25%;
+  padding: 5px 5px 5px 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.sortable-img img{
+  max-width: 100%;
+  height: auto;
+}
+
+.ie7 .sortable-img{ width: 25%;}
+
+/* テキスト */
+.sortable-name{ font-size: 80%;}
+.ie7 .sortable-name{ width: 72%;}
+
+/* 削除ボタン */
+.sortable-close{
+  display: block;
+  position: absolute;
+  top: -1.3em;
+  right: -0.5em;
+  padding: 5px 8px;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+  background: #F2DADA;
+  color: #D60000;
+  font-size: 80%;
+  cursor: pointer;
+}
+
+.sortable-close:active{
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset,0 0 6px rgba(0,0,0,.2) inset;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: none;
+}
+
+.sortable-close:hover{
+  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(transparent),color-stop(60%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));
+  background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 60%,rgba(0,0,0,.1));
+  background-image: -ms-linear-gradient(transparent,rgba(0,0,0,.05) 60%,rgba(0,0,0,.1));
+  background-image: linear-gradient(transparent,rgba(0,0,0,.05) 60%,rgba(0,0,0,.1));
+}
+
+/* 追加時の効果 */
+.moveend{
+  -webkit-animation-name: slide_a;
+  animation-name: slide_a;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes slide_a {
+  0% { border: 1px solid #ffffff;}
+  40% { border: 1px solid #129FEA;}
+  60% { border: 1px solid #129FEA;}
+  100% { border: 1px solid #CBCBCB;}
+}
+
+@keyframes slide_a {
+  0% { border: 1px solid #ffffff;}
+  40% { border: 1px solid #129FEA;}
+  60% { border: 1px solid #129FEA;}
+  100% { border: 1px solid #CBCBCB;}
+}
+
+.sotable-base .accordion-head{
+  margin-top: 1em;
+}
+
+.sotable-base .accordion-open:after,
+.sotable-base .accordion-close:after {
+  margin-top: 0;
+  content: "";
+}
+
+/* 余白調整 */
+.ui-sortable + p{
+  margin-top: 0;
+}
+
+
+
+
+/* ==========================================================================
+   登録コンテンツ側（左）
+   ========================================================================== */
+/* ul#contents_list */
+ul#contents_list{ margin-top: 3em;}
+
+/* コンテンツのタイトル */
+#contents_list .sortable-name{
+  width: 70%;
+  line-height: 1.75;
+}
+
+/* コンテンツがないとき */
+li#sortable_0{
+  padding: 20px 10px;
+  border: 1px solid #eee;
+  background: #fafafa;
+}
+
+
+
+
+
+/* ==========================================================================
+   追加コンテンツ側（右）
+   ========================================================================== */
+/* 検索エリア
+   ========================================================================== */
+.search-area > div{ vertical-align: baseline;}
+.search-area p{ letter-spacing: normal;}
+
+
+
+/* コンテンツエリア
+   ========================================================================== */
+#add_list li{
+  float: left;
+  position: relative;
+  margin: 1%;
+  border: none;
+  border-top: 1px solid #CBCBCB;
+  cursor: auto;
+}
+
+#add_list li span{
+  display: inline;
+  float: none;
+  width: auto;
+}
+
+#add_list .sortable-img{
+  padding-top: 5px;
+  cursor: move;
+}
+
+#add_list .sortable-img img{ position: static;}
+
+#add_list .sortable-close{ display: none;}
+
+/* アコーディオンがある場合 */
+.sotable-base .content-subhead2,
+.sotable-base h2.accordion-open.content-subhead2,
+.sotable-base .accordion-area{
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.sotable-base .accordion-area li{ border: none!important;}
+
+.sotable-base .accordion-open .accordion-icon:before,
+.sotable-base .accordion-close .accordion-icon:before{
+  font-size: 120%;
+}
+
+
+
+/* ==========================================================================
+   追加コンテンツのレイアウト
+   ========================================================================== */
+/* 1/1 */
+.sotable-1 .sotable-base li{ width: 100%;}
+/* 1/2 */
+.sotable-1-2 .sotable-base li{ width: 45%;}
+/* 1/3 */
+.sotable-1-3 .sotable-base li{ width: 30%;}
+
+/* コンテンツ画像等倍 */
+.natural-size  .sortable-img{
+  display: block!important;
+  text-align: left;
+  overflow: hidden;
+}
+
+.natural-size .sortable-img img{
+  max-width: none;
+}
+
+.ie7 .natural-size .sortable-img{ width: 100%;}
+
+/* コンテンツ画像縮小 */
+.reduced-size .sortable-img img{
+  position: relative;
+  top: .5em;
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+/* ==========================================================================
+   drag-drop ドラッグ＆ドロップでの画像投稿
+   ========================================================================== */
+.drop-area{
+  height: 6em;
+  border: 1px solid #eee;
+  background: #fafafa;
+  line-height: 6em;
+  text-align: center;
+}
+
+.drop-result{
+  padding: 0;
+  list-style: none;
+}
+
+/* ドロップ結果のサムネイル（ならべかえ可能） */
+#sortable .drop-result li{
+  position: relative;
+  float: left;
+  width: 22.5%;
+  height: 4em;
+  margin-right: 2%;
+}
+
+#sortable .drop-result li img{
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+#sortable p{ margin: 0;}
+
+fieldset{
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.dnd_error{ width: 100% !important;}
