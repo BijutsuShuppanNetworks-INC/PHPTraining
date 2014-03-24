@@ -1,3 +1,4 @@
+{debug}
 <!doctype html>
 <!--[if IE 7 ]><html lang="ja" class="ie ie7"><![endif]-->
 <!--[if IE 8 ]><html lang="ja" class="ie ie8"><![endif]-->
@@ -20,7 +21,6 @@
 </head>
 <body class="pure-skin-mine">
 <div id="wrap">
-{debug}
   <!-- ヘッダー(.header) -->
   <div class="header">
     <div id="horizontal-menu" class="pure-menu pure-menu-open pure-menu-horizontal">
@@ -29,7 +29,7 @@
       </a>
       <ul id="std-menu-items">
         <li><a href="">Home</a></li>
-        <li><a href="?action=stamp1">スタンプ管理</a></li>
+        <li><a href="?{$action}stamp1">スタンプ管理</a></li>
       </ul>
     </div>
   </div>
@@ -92,7 +92,7 @@
       <!-- form -->
       <form id="php_mk_banner" action="mk_banner.php" method="post">
         <fieldset>
-          <input type="hidden" name="session_id" value="{$smarty.session.id}">
+          <input type="hidden" name="session_id" value="{$session_id}">
           <input type="hidden" name="categoryId" value="{$smarty.post.categoryId}">
           <input type="hidden" name="categoryName" value="{$smarty.post.categoryName}">
           <input type="hidden" name="preinFlag" value="{$smarty.post.preinFlag}">
@@ -124,6 +124,7 @@
 <script src="js/common.js"></script>
 <script src="js/jquery-sotable-ui.js"></script>
 <script>
+{literal}
 $(function() {
   var $form = $('form');
 
@@ -226,7 +227,7 @@ $(function() {
   }
 
 });
-
+{/literal}
 </script>
 
 </body>

@@ -17,3 +17,7 @@ $libSmarty->caching            = true;
 $libSmarty->cache_dir          = APP_DIR . '/tmp/smarty_cache/';
 $libSmarty->cache_lifetime     = 60;
 
+
+// 共通のSmarty変数
+$libSmarty->assign('action', 'action=');
+$libSmarty->assign('session_id', session_id());

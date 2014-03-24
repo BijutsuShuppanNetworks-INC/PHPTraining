@@ -1,3 +1,4 @@
+{debug}
 <!doctype html>
 <!--[if IE 7 ]><html lang="ja" class="ie ie7"><![endif]-->
 <!--[if IE 8 ]><html lang="ja" class="ie ie8"><![endif]-->
@@ -20,7 +21,6 @@
 </head>
 <body class="pure-skin-mine">
 <div id="wrap">
-{debug}
   <!-- ヘッダー(.header) -->
   <div class="header">
     <div id="horizontal-menu" class="pure-menu pure-menu-open pure-menu-horizontal">
@@ -29,7 +29,7 @@
       </a>
       <ul id="std-menu-items">
         <li><a href="">Home</a></li>
-        <li><a href="?action=stamp1">スタンプ管理</a></li>
+        <li><a href="?{$action}stamp1">スタンプ管理</a></li>
       </ul>
     </div>
   </div>
@@ -38,9 +38,9 @@
 <!-- ================================================================================ -->
   <!-- コンテンツエリア(#main) -->
   <div id="main">
+    <p>{$sessionId}</p>
     <div class="content">
       <h1>スタンプ管理</h1>
-      <p>{$smarty.session.id}</p>
       <!-- 削除ボタン・必須文言 -->
       <div class="pure-g mb2 clearfix">
         <div class="pure-u-12-25 fs-80 fl">
@@ -49,8 +49,9 @@
       </div>
       <!-- //削除ボタン・必須文言 -->
 
-      <form action="?action=stamp2" method="post" class="pure-form pure-form-aligned">
+      <form action="./" method="post" class="pure-form pure-form-aligned">
         <fieldset>
+          <input type="hidden" value="stamp2" name="action">
 
           <!-- アセットID入力 -->
           <div class="pure-control-group">
