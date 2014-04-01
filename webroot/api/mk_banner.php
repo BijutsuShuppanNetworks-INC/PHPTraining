@@ -73,7 +73,8 @@ $dir = $stampDataPass;
 function deleteData ( $dir ) {
   if ( $handle = opendir ( $dir )) {
     while ( false !== ( $fileName = readdir ( $handle ) ) ) {
-      if ( $fileName != "/\./" && $fileName != "/\.\./" ) {
+      // putLog( APP_LOGOUTPUT_DIR, print_r($fileName, true) );
+      if ( $fileName != "." && $fileName != ".." ) {
         unlink ( "$dir/$fileName" );
       }
     }
