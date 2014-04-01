@@ -45,7 +45,9 @@ function model_input01($libSmarty){
 */
 function model_stamp1($libSmarty){
   $ses_id = session_id();
-  mkdir( "../tmp/files/".$ses_id );
+  $name   = "../tmp/files/".$ses_id;
+  mkdir($name);
+  chmod($name, 0777);
   $libSmarty->assign('sessionId', $ses_id);
   return true;
 }

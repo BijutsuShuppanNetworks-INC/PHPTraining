@@ -168,7 +168,7 @@ $(function() {
 
     // formの id & action 代入
     $form.data_id = 'php_mk_banner';
-    $form.data_action = './app/webroot/api/mk_banner.php';
+    $form.data_action = './api/mk_banner.php';
     $form.data_method = 'post';
 
     // 以前つくったバナーサンプルがある場合は破棄
@@ -189,7 +189,7 @@ $(function() {
 
     // formの id & action 代入
     $form.data_id = 'php_mk_zip';
-    $form.data_action = './app/webroot/api/mk_zip.php';
+    $form.data_action = './api/mk_zip.php';
     $form.data_method = 'post';
 
     _ajax($form);
@@ -210,6 +210,7 @@ $(function() {
       success:function(data){
         if( $form.data_id == 'php_mk_banner'){
           // バナー表示&zip作成ボタン表示
+          $('#main').css('height', 'auto');
           $('#js_confirm_bn').css('display', 'block');
           $('#js_confirm_bn_area').append('<img src="data:image/png;base64,'+ data +'">');
 
