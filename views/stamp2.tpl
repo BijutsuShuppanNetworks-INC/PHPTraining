@@ -80,17 +80,19 @@
 
 
       <!-- zipファイルダウンロード(#js_dl_zip_btn)    -->
-      <p id="js_dl_zip_btn" class="pure-button" style="display:none;">
-        zipファイルをダウンロードする
-      </p>
+      <form action="test_output_zip.php" method="post" style="display:none;" id="js_dl_zip_btn" >
+        <fieldset>
+          <input type="hidden" name="session_id" value="{$session_id}">
+          <input type="hidden" name="categoryId"  value="{$smarty.post.categoryId}">
+          <input type="submit" value="zipファイルをダウンロードする" class="pure-button">
+        </fieldset>
+      </form>
       <!-- // zipファイルダウンロード(#js_dl_zip_btn)    -->
 
 
-      <div id="debug"></div>
-
 
       <!-- form -->
-      <form id="php_mk_banner" action="mk_banner.php" method="post">
+      <form id="php_mk_banner" action="mk_banner.php" method="post" class="js_form">
         <fieldset>
           <input type="hidden" name="session_id" value="{$session_id}">
           <input type="hidden" name="categoryId" value="{$smarty.post.categoryId}">
@@ -126,7 +128,7 @@
 <script>
 {literal}
 $(function() {
-  var $form = $('form');
+  var $form = $('.js_form');
 
   // ドラッグ＆ドロップ可能か判別
   // ==========================================================================
@@ -155,16 +157,19 @@ $(function() {
 
   // 削除
   $(document).on('click', '.sortable-close' ,function(){
-    var removeFormData = $(this).parent('li').attr('id');
     $(this).parent('li').remove();
-    $('.'+ removeFormData).remove();
-  });
-
-
+  })
 
   // バナー作成
   // ==========================================================================
   $('#js_mk_thumb_btn').click(function(){
+    // 送信用画像の生成
+    var stampImg = [];
+    $('.sortable-item').each(function() {
+       var imgData = $(this).find('img').attr('src');
+       stampImg.push('<input type="hidden" name="stamps[]" value="'+ imgData +'">');
+    });
+    $('#drop_result_base64').html(stampImg);
 
     // formの id & action 代入
     $form.data_id = 'php_mk_banner';
@@ -174,7 +179,7 @@ $(function() {
     // 以前つくったバナーサンプルがある場合は破棄
     $('#js_confirm_bn_area img').remove();
 
-    _ajax($form);
+    stampAjax($form);
 
   });
 
@@ -192,7 +197,7 @@ $(function() {
     $form.data_action = './api/mk_zip.php';
     $form.data_method = 'post';
 
-    _ajax($form);
+    stampAjax($form);
 
   });
 
@@ -200,7 +205,7 @@ $(function() {
 
   // ajax
   // ==========================================================================
-  function _ajax($form){
+  function stampAjax($form){
     $.ajax({
       async: true,
       url: $form.data_action,
@@ -216,8 +221,7 @@ $(function() {
 
         } else if ( $form.data_id == 'php_mk_zip' ){
           // zipDLボタンの表示
-          $('#js_dl_zip_btn').css('display', 'inline-block');
-          $('#debug').text(data);
+          $('#js_dl_zip_btn').css('display', 'block');
         }
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {

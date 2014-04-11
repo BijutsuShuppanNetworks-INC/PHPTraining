@@ -2,7 +2,7 @@
 /* ==========================================================================
    # 関連ファイルのロード
    # 定数定義
-   # Postデータの取得?
+   # Postデータの取得
    # Postデータ処理
    # ディレクトリ内の不要ファイルを削除
    # zip作成
@@ -10,20 +10,23 @@
 
 // # 関連ファイルのロード
 // ==========================================================================
-require_once('log.php');
+require_once( '../../conf/AppConf.php');
+require_once(APP_DIR.'/libs/log.php');
 
 // # 定数定義
 // ==========================================================================
 // ディレクトリセパレータ
-define('DS', '/');
+if(!defined('DIRECTORY_SEPARATOR')){
+define('DIRECTORY_SEPARATOR', '/');
+}
 // ファイル名セパレータ
 define('FNS', '_');
 // IDセパレータ
 define('IDS', '_');
 // ログ出力ディレクトリ
-define('APP_LOGOUTPUT_DIR', './log/');
+define('APP_LOGOUTPUT_DIR', APP_DIR.'/tmp/logs/');
 // スタンプデータ一次保存ディレクトリ
-define('APP_STAMPDATA_TMP_DIR', './files/');
+define('APP_STAMPDATA_TMP_DIR', APP_DIR.'/tmp/files/');
 
 // zip関連
 define('APP_STAMP_ZIP_SUFFIX', '.zip'); // zipファイルの拡張子
@@ -36,13 +39,11 @@ define('APP_STAMP_BANNER_IMG_SUFFIX', '.png'); // スタンプ画像の拡張子
 define('APP_STAMP_JSON_FILENAME', 'stamp.json');
 
 
+
 // # Postデータの取得
 // ==========================================================================
 // Postデータをログ出力
 putLog( APP_LOGOUTPUT_DIR, print_r($_POST, true) );
-
-// Postデータの入力チェック?
-
 
 // Postデータの取得
 $sessionId        = $_POST["session_id"];
@@ -84,5 +85,4 @@ if ($res === true) {
 
   // ZIPファイルをクローズ
   $zip->close();
-  echo $jsonFileName;
 }
